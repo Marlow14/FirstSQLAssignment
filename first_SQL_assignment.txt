@@ -1,0 +1,214 @@
+CREATE TABLE `school_building`.`new_table` 
+(
+  `teacher_id` INT NOT NULL AUTO_INCREMENT,
+  
+`first_name` VARCHAR(45) NOT NULL,
+  
+`last_name` VARCHAR(45) NOT NULL,
+  
+`age` INT NOT NULL,
+  
+`salary` DECIMAL(10,3) NOT NULL,
+  
+PRIMARY KEY (`teacher_id`),
+  
+UNIQUE INDEX `teacher_id_UNIQUE` (`teacher_id` ASC));
+
+INSERT INTO `school_building`.`teacher`
+
+(`first_name`,
+`last_name`,
+`age`,
+`salary`)
+
+VALUES
+('Mickey', 'Mouse', 75, 199482.25),
+
+('Donald', 'Duck', 73, 99284.52),
+
+('Daffy', 'Duck', 72, 9284.00);
+
+CREATE TABLE `school_building`.`student` 
+(
+  `student_id` INT NOT NULL AUTO_INCREMENT,
+  
+`first_name` VARCHAR(45) NOT NULL,
+  
+`last_name` VARCHAR(45) NOT NULL,
+  
+`grade` INT NOT NULL,
+  
+`gpa` DECIMAL(5,3) NOT NULL,
+  
+PRIMARY KEY (`student_id`),
+  
+UNIQUE INDEX `student_id_UNIQUE` (`student_id` ASC));
+
+INSERT INTO `school_building`.`student`
+
+(`first_name`,
+`last_name`,
+`grade`,
+`gpa`)
+
+VALUES
+('Buster', 'Bunny', 90, 3.5),
+
+('Babes', 'Bunny', 100, 4.0),
+
+('Pluckey', 'Duck', 75, 2.0),
+
+('Hampton J', 'Pig', 85, 3.0),
+
+('Elmyra', 'Duff', 60, 1.0),
+
+('Montana', 'Max', 87, 3.2),
+
+('Dizzy', 'Devil', 79, 2.4),
+
+('Fifi', 'Laafume', 79, 2.4),
+
+('Calamity', 'Coyote', 79, 2.4),
+
+('Shirley', 'McLoon', 74, 1.9);
+select * from student
+
+CREATE TABLE `school_building`.`class` 
+(
+  `class_id` INT NOT NULL AUTO_INCREMENT,
+  
+`name` VARCHAR(45) NOT NULL,
+  
+`description` VARCHAR(45) NOT NULL,
+  
+`teacher_id` INT NULL,
+  
+PRIMARY KEY (`class_id`),
+  
+UNIQUE INDEX `idclass_UNIQUE` (`class_id` ASC));
+
+INSERT INTO `school_building`.`class`
+
+(`name`,
+`description`,
+`teacher_id`)
+
+VALUES
+('Televison Appreciation', 'Watching TV Shows', 1),
+
+('Cartoon 101', 'Slap Stick Humor', 1),
+
+('ACME Toon Acting', 'How to work for ACME agency', 2),
+
+('Tiny Toons U', 'Cartoon acting for young toons', 2),
+
+('Anvil 201', 'How to drop anvils', 3),
+
+('TNT 301', 'How to use cartoon dynamite', 3);
+SELECT * FROM school_building.teacher;
+
+CREATE TABLE `school_building`.`class_student` 
+(
+  `class_student_id` INT NOT NULL AUTO_INCREMENT,
+  
+`class_id` INT NOT NULL,
+  
+`student_id` INT NOT NULL,
+  
+PRIMARY KEY (`class_student_id`),
+  
+UNIQUE INDEX `class_student_id_UNIQUE` (`class_student_id` ASC));
+
+INSERT INTO `school_building`.`class_student`
+
+(`class_id`,
+`student_id`)
+VALUES
+
+(1, 1),(3, 1),
+(5, 1),
+
+(2, 2),(4, 2),
+(6, 2),
+
+(1, 3),
+(3, 3),
+(5, 3),
+
+(2, 4),
+(4, 4),
+(6, 4),
+
+(1, 5),
+(3, 5),
+(5, 5),
+
+(2, 6),
+(4, 6),
+(6, 6),
+
+(1, 7),
+(3, 7),
+(5, 7),
+
+(2, 8),
+(4, 8),
+(6, 8),
+
+(1, 9),
+(3, 9),
+(5, 9),
+
+(2, 10),
+(4, 10),
+(6, 10);
+SELECT * FROM school_building.class_student;
+
+SELECT * FROM `school_building`.`teacher`;
+
+SELECT * FROM `school_building`.`class`;
+
+SELECT * FROM `school_building`.`student`;
+
+select * from class
+
+where `teacher_id` = 1;
+
+select * from class_student 
+where `class_id` = 1;
+
+select * from class_student 
+where student_id = 1;
+
+select * from student 
+where first_name = '%A%';
+
+UPDATE `school_building`.`teacher`
+
+SET
+
+`first_name` = 'Superman',
+`last_name` = ''
+
+WHERE `teacher_id` = 1;
+
+UPDATE `school_building`.`class`
+
+SET
+
+`name` = 'Underwater Basket Weaving'
+
+WHERE `class_id` = 1;
+
+UPDATE `school_building`.`student`
+
+SET
+
+`first_name` = 'Wonder Women',
+`last_name` = ''
+
+WHERE `student_id` = 1;
+
+DELETE FROM `school_building`.`student`
+
+WHERE `student_id` = 10;
